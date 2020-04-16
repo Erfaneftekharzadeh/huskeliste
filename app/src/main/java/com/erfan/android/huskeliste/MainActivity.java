@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn=findViewById(R.id.add_btn);
         itemsList = findViewById(R.id.items_list);
 
+        items = FileHelper.readData(this);
+        adapter
+
         btn.setOnClickListener(this);
 
 
