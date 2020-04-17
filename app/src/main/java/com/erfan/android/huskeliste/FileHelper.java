@@ -12,7 +12,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class FileHelper {
-    public static final String FILENAME="Listinfo.dat";
+    public static final String FILENAME="List.dat";
     public static void writeData(ArrayList<String> items, Context context) throws IOException {
 
         try {
