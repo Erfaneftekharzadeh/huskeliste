@@ -13,8 +13,7 @@ import java.util.ArrayList;
 
 public class FileHelper {
     public static final String FILENAME="Listinfo.dat";
-    public static void writeData(ArrayList<String> items, Context context){
-
+    public static void writeData(ArrayList<String> items, Context context) throws IOException {
 
         try {
             FileOutputStream fos=context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
@@ -22,8 +21,7 @@ public class FileHelper {
             oos.writeObject(items);
             oos.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+
             e.printStackTrace();
         }
     }
@@ -34,10 +32,11 @@ public class FileHelper {
         try {
             FileInputStream fis =context.openFileInput(FILENAME);
             ObjectInput ois= new ObjectInputStream(fis);
-            itemsList = new ArrayList<>();
+            itemsList = (ArrayList<String>) ois.readObject();
         } catch (FileNotFoundException e) {
+            itemsList = new ArrayList<>();
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return itemsList;

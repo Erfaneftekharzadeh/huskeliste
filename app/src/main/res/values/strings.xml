@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">huskeliste</string>
+    <string name="legge_til">Legge til</string>
+    <string name="appHelp">Skriv oppgave</string>
 </resources>
