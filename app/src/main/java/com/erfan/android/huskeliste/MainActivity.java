@@ -48,11 +48,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
   public void onClick(View v){
+      String hasItem=itemET.getText().toString();
+      if(hasItem.length() != 0) {
         switch (v.getId()){
             case R.id.add_btn:
-                String itemEntered = itemET.getText().toString();
-                adapter.add(itemEntered);
-                itemET.setText("");
+
+                    String itemEntered = itemET.getText().toString();
+                    adapter.add(itemEntered);
+                    itemET.setText("");
 
                 try {
                     FileHelper.writeData(items, this);
@@ -63,6 +66,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "Varen lagt til", Toast.LENGTH_SHORT).show();
             break;
         }
+      }else {
+          Toast.makeText(this, "Forst skriv noe!", Toast.LENGTH_SHORT).show();
+      }
   }
 
     @Override
